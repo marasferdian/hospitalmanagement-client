@@ -1,0 +1,16 @@
+<div *ngIf="!isAuthenticated()">
+  <h2 >Sign in: </h2>
+  <form>
+    <input placeholder="Username" type="username" name="username" id="username"
+           [(ngModel)]="username" (keydown.enter)="login()"/>
+      <input placeholder="Password" type="password" name="password" id="password"
+             [(ngModel)]="password" (keydown.enter)="login()"/>
+  </form>
+  <button mat-button color="primary" (click)="login()">Login</button>
+</div>
+<div *ngIf="isAuthenticated()">
+  <h2 class="mat-h2">Logged in!</h2>
+  <button (click)="logout()">Logout</button>
+  <hr>
+  <button (click)="onLoadUser()">Go to my profile</button>
+</div>

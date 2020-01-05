@@ -1,0 +1,14 @@
+<div *ngIf="!isAuthenticated()">
+  <h2>You are not logged in!</h2>
+  <button (click)="onClickLogin()">Login</button>
+</div>
+<div *ngIf="isAuthenticated()">
+  <h2>Hello, {{user.firstName}} {{user.lastName}}!</h2>
+  <h3>Logged in as {{user.job}}</h3>
+  <button (click)="onClickLogout()">Logout</button>
+</div>
+
+
+
+
+

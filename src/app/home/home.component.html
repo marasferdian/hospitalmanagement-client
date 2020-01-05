@@ -1,0 +1,9 @@
+<h4>Welcome to our clinic!</h4>
+<p>Manage your pacients or appointments here.</p>
+<button class="btn btn-primary" (click)="onLoadUser()">Go to my profile</button>
+<hr>
+<button class="btn btn-primary" (click)="onClickLogin()" *ngIf="!isAuthenticated()">Login</button>
+<hr>
+<button class="btn btn-primary" (click)="onClickLogout()" *ngIf="isAuthenticated()">Logout</button>
+
+

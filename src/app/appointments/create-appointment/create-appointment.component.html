@@ -1,0 +1,33 @@
+<div *ngIf="isAdmin()">
+  <h2 >Create Appointment: </h2>
+  <form>
+    <input placeholder="pacient" type="pacient" name="pacient" id="pacient" [(ngModel)]="pacientId">
+    <hr>
+    <input placeholder="medic" type="medic" name="medic" id="medic" [(ngModel)]="medicId">
+    <hr>
+    <input placeholder="date" type="date" name="date" id="date" [(ngModel)]="date">
+    <hr>
+  </form>
+  <button class="btn-primary" (click)="onCreateAppointment()">Request Appointment!</button>
+</div>
+<div *ngIf="isMedic()">
+  <h2 >Create Appointment: </h2>
+  <form>
+    <input placeholder="pacient" type="pacient" name="pacient" id="pacient" [(ngModel)]="pacientId">
+    <hr>
+    <input placeholder="date" type="date" name="date" id="date" [(ngModel)]="date">
+    <hr>
+  </form>
+  <button class="btn-primary" (click)="onCreateAppointment()">Request Appointment!</button>
+</div>
+<div *ngIf="isPacient()">
+  <h2 >Create Appointment: </h2>
+  <form>
+    <input placeholder="medic" type="medic" name="medic" id="medic" [(ngModel)]="medicId">
+    <hr>
+    <input placeholder="date" type="date" name="date" id="date" [(ngModel)]="date">
+    <hr>
+  </form>
+  <button class="btn-primary" (click)="onCreateAppointment()">Request Appointment!</button>
+</div>
+

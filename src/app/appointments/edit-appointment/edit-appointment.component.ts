@@ -13,8 +13,11 @@ import {User} from '../../shared/user.model';
 export class EditAppointmentComponent implements OnInit {
 
   appointment= new Appointment({});
+  updatedAppointment=new Appointment({});
   user=new User({});
   newDate:Date;
+  newMedicId:number;
+  newPacientId:number;
   constructor(private appointmentsService: AppointmentsService, private route: ActivatedRoute,private restService:RestService) { }
 
   ngOnInit() {
@@ -31,8 +34,11 @@ export class EditAppointmentComponent implements OnInit {
   }
   onClickSubmit()
   {
-    this.appointment.date=new Date(this.newDate);
-   // return this.restService.update(Appointment,'http://localhost:8080/appointments/'+this.appointment.appointmentId,)
+    this.updatedAppointment.date=new Date(this.newDate);
+    this.updatedAppointment.medicId= +(this.newMedicId);
+    this.updatedAppointment.pacientId= +(this.newPacientId);
+    console.log("updating"+this.updatedAppointment.date);
+    return this.restService.update(Appointment,'http://localhost:8080/appointments/'+this.route.snapshot.params['/id'],this.updatedAppointment);
   }
 
 

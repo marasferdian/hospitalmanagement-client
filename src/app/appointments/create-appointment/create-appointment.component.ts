@@ -49,6 +49,7 @@ export class CreateAppointmentComponent implements OnInit {
 
 
     if(this.isAdmin()) {
+      console.log("intrat aici");
       this.createdAppointment.medicId = +(this.medicId);
       this.createdAppointment.pacientId = +(this.pacientId);
       this.createdAppointment.date = new Date(this.date);

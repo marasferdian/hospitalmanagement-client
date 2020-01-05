@@ -9,7 +9,7 @@ export class AppointmentsService {
   }
   appointments: Appointment[]=[];
 
-  getAppointments() {
+  async getAppointments() {
 
      return this.restService.readArray(Appointment, 'http://localhost:8080/appointments');
   }

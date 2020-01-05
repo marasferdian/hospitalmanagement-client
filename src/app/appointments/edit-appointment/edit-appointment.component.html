@@ -1,9 +1,13 @@
 <div *ngIf="isAdmin()">
-<form>
-  Date: <input type="text" name="newDate" [(ngModel)]="newDate"><br>
-  <hr>
-  <input type="submit" value="Submit" (click)="onClickSubmit()">
-</form>
+  <form>
+    <input placeholder="pacient" type="pacient" name="pacient" id="pacient" [(ngModel)]="newPacientId">
+    <hr>
+    <input placeholder="medic" type="medic" name="medic" id="medic" [(ngModel)]="newMedicId">
+    <hr>
+    <input placeholder="date" type="date" name="date" id="date" [(ngModel)]="newDate">
+    <hr>
+  </form>
+  <button class="btn-primary" (click)="onClickSubmit()">Submit</button>
 </div>
 <div *ngIf="!isAdmin()">
   <h2>You do not have permission to edit an appointment! Log in as an admin.</h2>

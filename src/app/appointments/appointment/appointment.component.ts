@@ -11,7 +11,7 @@ import {RestService} from '../../rest.service';
 })
 export class AppointmentComponent implements OnInit {
 
-  appointment: Appointment;
+  appointment=new Appointment({});
   constructor(private appointmentsService: AppointmentsService, private route: ActivatedRoute, private router: Router,private restService:RestService) {
 
   }

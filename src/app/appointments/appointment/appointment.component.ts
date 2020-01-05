@@ -26,5 +26,9 @@ export class AppointmentComponent implements OnInit {
   onClickEdit(appointmentId: any) {
     this.router.navigate(['/appointments/' + appointmentId + '/edit']);
   }
+  onClickDelete(appointmentId:number)
+  {
+    return this.restService.delete('http://localhost:8080/appointments/' + appointmentId);
+  }
 
 }

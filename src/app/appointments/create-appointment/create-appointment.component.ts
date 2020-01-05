@@ -11,7 +11,7 @@ import {Appointment} from '../../shared/appointment.model';
 })
 export class CreateAppointmentComponent implements OnInit {
 
-  user;
+  user=new User({});
   medicId: number;
   pacientId: number;
   date: Date;
@@ -47,12 +47,28 @@ export class CreateAppointmentComponent implements OnInit {
   onCreateAppointment()
   {
 
-    this.createdAppointment.medicId= +(this.medicId);
-    this.createdAppointment.pacientId= +(this.pacientId);
-    this.createdAppointment.date= new Date(this.date);
+
+    if(this.isAdmin()) {
+      this.createdAppointment.medicId = +(this.medicId);
+      this.createdAppointment.pacientId = +(this.pacientId);
+      this.createdAppointment.date = new Date(this.date);
+    }
+    else if(this.isPacient())
+    {
+      this.createdAppointment.medicId = +(this.medicId);
+      this.createdAppointment.pacientId =this.user.userId;
+      this.createdAppointment.date = new Date(this.date);
+    }
+    else if(this.isMedic())
+    {
+      this.createdAppointment.medicId =this.user.userId;
+      this.createdAppointment.pacientId =this.pacientId;
+      this.createdAppointment.date = new Date(this.date);
+    }
     console.log(this.createdAppointment.date);
     console.log(typeof this.createdAppointment.medicId,typeof this.createdAppointment.pacientId,typeof this.createdAppointment.date);
     return this.restService.create(Appointment,'http://localhost:8080/appointment',this.createdAppointment);
   }
+
 
 }

@@ -1,5 +1,10 @@
+<div *ngIf="isAdmin()">
 <form>
-  Date: <input type="text" name="newDate"><br>
+  Date: <input type="text" name="newDate" [(ngModel)]="newDate"><br>
   <hr>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" (click)="onClickSubmit()">
 </form>
+</div>
+<div *ngIf="!isAdmin()">
+  <h2>You do not have permission to edit an appointment! Log in as an admin.</h2>
+</div>
